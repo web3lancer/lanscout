@@ -1,6 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import { Box, Button, Container, Paper, Stack, TextField, Typography } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -57,97 +59,123 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col">
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
-      <main className="flex-1 px-4 sm:px-6 lg:px-10 py-8">
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-8">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
+      <Box component="main" sx={{ flex: 1, px: { xs: 2, sm: 3, lg: 5 }, py: 4 }}>
+        <Container maxWidth="lg">
+          <Box sx={{ mb: 4 }}>
+            <Typography variant="h4" component="h2" sx={{ fontWeight: 700, mb: 1 }}>
               Your Personalized Opportunity Feed
-            </h2>
-            <p className="text-muted-light dark:text-muted-dark max-w-2xl">
+            </Typography>
+            <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: '600px' }}>
               AI-curated opportunities in hackathons, grants, and startup funding, just for you.
-            </p>
-          </div>
-          <div className="mb-10 sm:hidden">
-            <label className="relative">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                <svg
-                  className="text-muted-light dark:text-muted-dark"
-                  fill="currentColor"
-                  height="20"
-                  viewBox="0 0 256 256"
-                  width="20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
-                </svg>
-              </div>
-              <input
-                className="h-12 w-full rounded-lg border-none bg-surface-light dark:bg-surface-dark pl-12 pr-4 text-base placeholder:text-muted-light dark:placeholder:text-muted-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark"
-                placeholder="Search for opportunities"
-              />
-            </label>
-          </div>
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold mb-4">Trending Opportunities</h3>
-            <div className="relative">
-              <div className="flex overflow-x-auto pb-4 -mx-4 px-4 gap-6 snap-x snap-mandatory">
-                {trendingOpportunities.map((opp) => (
-                  <div key={opp.id} className="flex flex-col gap-3 rounded-lg min-w-[280px] snap-start">
-                    <div
-                      className="w-full aspect-video bg-cover bg-center rounded-lg"
-                      style={{ backgroundImage: `url("${opp.image}")` }}
-                    ></div>
-                    <div>
-                      <h4 className="font-bold text-lg">{opp.title}</h4>
-                      <p className="text-sm text-muted-light dark:text-muted-dark">{opp.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold mb-4">Quick Navigation</h3>
-            <div className="flex flex-wrap gap-4">
-              <Link
+            </Typography>
+          </Box>
+
+          <Box sx={{ mb: 5, display: { xs: 'block', sm: 'none' } }}>
+            <TextField
+              fullWidth
+              placeholder="Search for opportunities"
+              size="small"
+              InputProps={{ startAdornment: <SearchIcon sx={{ mr: 1, color: 'text.secondary' }} /> }}
+            />
+          </Box>
+
+          <Box sx={{ mb: 6 }}>
+            <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
+              Trending Opportunities
+            </Typography>
+            <Box sx={{ display: 'flex', gap: 3, overflowX: 'auto', pb: 2 }}>
+              {trendingOpportunities.map((opp) => (
+                <Box key={opp.id} sx={{ flex: '0 0 280px' }}>
+                  <Box
+                    sx={{
+                      width: '100%',
+                      aspectRatio: '16 / 9',
+                      backgroundImage: `url("${opp.image}")`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      borderRadius: 2,
+                      mb: 1,
+                    }}
+                  />
+                  <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5 }}>
+                    {opp.title}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    {opp.description}
+                  </Typography>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+
+          <Box sx={{ mb: 6 }}>
+            <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
+              Quick Navigation
+            </Typography>
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+              <Button
+                component={Link}
                 href="/opportunities"
-                className="flex-grow sm:flex-grow-0 flex items-center justify-center rounded-lg h-12 px-6 bg-surface-light dark:bg-surface-dark text-sm font-bold hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"
+                variant="outlined"
+                sx={{ flex: { xs: 1, sm: 'initial' } }}
               >
                 Browse All Opportunities
-              </Link>
-              <Link
+              </Button>
+              <Button
+                component={Link}
                 href="/categories"
-                className="flex-grow sm:flex-grow-0 flex items-center justify-center rounded-lg h-12 px-6 bg-surface-light dark:bg-surface-dark text-sm font-bold hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"
+                variant="outlined"
+                sx={{ flex: { xs: 1, sm: 'initial' } }}
               >
                 Explore Categories
-              </Link>
-            </div>
-          </div>
-          <div>
-            <h3 className="text-2xl font-bold mb-6">AI-Curated For You</h3>
-            <div className="space-y-6">
+              </Button>
+            </Stack>
+          </Box>
+
+          <Box>
+            <Typography variant="h5" sx={{ fontWeight: 700, mb: 3 }}>
+              AI-Curated For You
+            </Typography>
+            <Stack spacing={3}>
               {curatedOpportunities.map((opp) => (
-                <div
+                <Paper
                   key={opp.id}
-                  className="flex flex-col md:flex-row items-center gap-6 p-4 rounded-lg bg-surface-light dark:bg-surface-dark"
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: { xs: 'column', md: 'row' },
+                    alignItems: { xs: 'center', md: 'flex-start' },
+                    gap: 3,
+                  }}
                 >
-                  <div
-                    className="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded-lg flex-shrink-0"
-                    style={{ backgroundImage: `url("${opp.image}")` }}
-                  ></div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-bold leading-tight mb-1">{opp.title}</h4>
-                    <p className="text-sm text-muted-light dark:text-muted-dark">{opp.description}</p>
-                  </div>
-                </div>
+                  <Box
+                    sx={{
+                      width: { xs: '100%', md: '33%' },
+                      aspectRatio: { xs: '16 / 9', md: '1' },
+                      backgroundImage: `url("${opp.image}")`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      borderRadius: 2,
+                      flexShrink: 0,
+                    }}
+                  />
+                  <Box sx={{ flex: 1 }}>
+                    <Typography variant="h6" sx={{ fontWeight: 700, mb: 0.5 }}>
+                      {opp.title}
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                      {opp.description}
+                    </Typography>
+                  </Box>
+                </Paper>
               ))}
-            </div>
-          </div>
-        </div>
-      </main>
+            </Stack>
+          </Box>
+        </Container>
+      </Box>
       <Footer />
-    </div>
+    </Box>
   );
 }
