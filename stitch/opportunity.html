@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1193d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              display: ["Manrope"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<header class="border-b border-gray-200/10 dark:border-gray-700/50">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-gray-900 dark:text-white">
+<svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+<h2 class="text-xl font-bold">Lanscout</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Opportunities</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">AI Insights</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Community</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Resources</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"> search </span>
+<input class="form-input w-full rounded-lg border-0 bg-background-light/[0.5] dark:bg-background-dark/[0.5] pl-10 text-sm placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:ring-1 focus:ring-primary" placeholder="Search"/>
+</div>
+<button class="hidden lg:flex items-center justify-center rounded-lg bg-primary/10 dark:bg-primary/20 px-4 py-2 text-sm font-bold text-primary hover:bg-primary/20 dark:hover:bg-primary/30">
+              Post an Opportunity
+            </button>
+<div class="h-10 w-10 flex-shrink-0 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD3vpaK6WQU3sY2CIlzohBwHIvJAVWmRwnMBSzyYdV0RPno2CQuaBfXj-hvr-ndByfAPLAC0epoxuG7YRYYTeEwUJoOXnmbUUFyTxNrfMG96RISLPBBLeSPdQgiVU0OrtD28KVLkfXG1JlhGg54hT7FJ-6DN837RU2-rk33V76W4VgIzc7sNC2fkg9_Zlt9kVO90LMep3E_R4B24kEQTaBllFg_hhZyiuxyHJOFPhLZewkgKbTeHHXfFdZJkkKajiEAQ9HvDqAwFQ");'></div>
+</div>
+</div>
+</header>
+<main class="w-full flex-1">
+<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+<div class="space-y-12">
+<div class="space-y-6">
+<div class="text-sm text-gray-500 dark:text-gray-400">
+<a class="hover:text-primary" href="#">Opportunities</a>
+<span class="mx-2">/</span>
+<span class="text-gray-800 dark:text-gray-200">AI Grant</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+<div class="space-y-2">
+<h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">AI Grant for Innovative Projects</h1>
+<p class="text-gray-500 dark:text-gray-400 max-w-2xl">Funding for projects leveraging AI to solve real-world problems. Open to individuals and teams.</p>
+</div>
+<a class="flex-shrink-0 inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark" href="#">
+                  Apply Now
+                </a>
+</div>
+</div>
+<div class="border-b border-gray-200/50 dark:border-gray-700/50">
+<nav aria-label="Tabs" class="-mb-px flex space-x-8">
+<a class="border-primary text-primary whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium" href="#"> Overview </a>
+<a class="border-transparent text-gray-500 dark:text-gray-400 hover:border-gray-300 dark:hover:border-gray-600 hover:text-gray-700 dark:hover:text-gray-300 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium" href="#">
+                  AI Insights
+                </a>
+</nav>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<div class="lg:col-span-2 space-y-8">
+<section>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">About this opportunity</h3>
+<div class="divide-y divide-gray-200/50 dark:divide-gray-700/50 border-t border-gray-200/50 dark:border-gray-700/50">
+<div class="py-4 grid grid-cols-3 gap-4">
+<dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Type</dt>
+<dd class="text-sm text-gray-900 dark:text-white col-span-2">Grant</dd>
+</div>
+<div class="py-4 grid grid-cols-3 gap-4">
+<dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Status</dt>
+<dd class="text-sm text-gray-900 dark:text-white col-span-2">
+<span class="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/50 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:text-green-300">Open</span>
+</dd>
+</div>
+<div class="py-4 grid grid-cols-3 gap-4">
+<dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Deadline</dt>
+<dd class="text-sm text-gray-900 dark:text-white col-span-2">October 31, 2024</dd>
+</div>
+<div class="py-4 grid grid-cols-3 gap-4">
+<dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Location</dt>
+<dd class="text-sm text-gray-900 dark:text-white col-span-2">Remote</dd>
+</div>
+</div>
+</section>
+<section>
+<div class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
+<p>
+                      This grant supports innovative projects that utilize artificial intelligence to address significant challenges across various sectors. We encourage applications
+                      from individuals and teams with groundbreaking ideas and a commitment to making a positive impact. Projects should demonstrate a clear understanding of the
+                      problem, a novel approach using AI, and a potential for scalability and real-world application. Funding amounts vary based on project scope and impact.
+                    </p>
+</div>
+</section>
+<section>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Tags</h3>
+<div class="flex flex-wrap gap-2">
+<span class="rounded bg-primary/10 dark:bg-primary/20 px-2 py-1 text-sm font-medium text-primary">AI</span>
+<span class="rounded bg-primary/10 dark:bg-primary/20 px-2 py-1 text-sm font-medium text-primary">Machine Learning</span>
+<span class="rounded bg-primary/10 dark:bg-primary/20 px-2 py-1 text-sm font-medium text-primary">Innovation</span>
+<span class="rounded bg-primary/10 dark:bg-primary/20 px-2 py-1 text-sm font-medium text-primary">Technology</span>
+<span class="rounded bg-primary/10 dark:bg-primary/20 px-2 py-1 text-sm font-medium text-primary">Funding</span>
+</div>
+</section>
+<section class="flex items-center gap-4 pt-4">
+<a class="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark" href="#">
+                    Apply Now
+                  </a>
+<button class="inline-flex items-center justify-center rounded-lg border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark px-5 py-2.5 text-sm font-bold text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800">
+                    Save
+                  </button>
+</section>
+<section>
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Share</h3>
+<div class="flex items-center gap-4">
+<button class="flex flex-col items-center gap-2 text-center text-sm text-gray-500 dark:text-gray-400 hover:text-primary">
+<div class="rounded-full bg-background-light dark:bg-gray-800/50 p-3 ring-1 ring-gray-200 dark:ring-gray-700/50">
+<span class="material-symbols-outlined text-lg"> share </span>
+</div>
+<span>Share</span>
+</button>
+<button class="flex flex-col items-center gap-2 text-center text-sm text-gray-500 dark:text-gray-400 hover:text-primary">
+<div class="rounded-full bg-background-light dark:bg-gray-800/50 p-3 ring-1 ring-gray-200 dark:ring-gray-700/50">
+<span class="material-symbols-outlined text-lg"> link </span>
+</div>
+<span>Copy Link</span>
+</button>
+</div>
+</section>
+</div>
+<aside class="space-y-8">
+<div class="rounded-lg bg-background-light dark:bg-background-dark/50 p-6 ring-1 ring-gray-200/50 dark:ring-gray-700/50">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary"> auto_awesome </span>
+                    AI Insights
+                  </h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Powered by our AI to help you find the best fit.</p>
+<ul class="space-y-4">
+<li class="flex items-start gap-4">
+<div class="flex-shrink-0 rounded-lg bg-primary/10 dark:bg-primary/20 p-2 text-primary">
+<span class="material-symbols-outlined text-xl"> lightbulb </span>
+</div>
+<div>
+<h4 class="font-semibold text-gray-900 dark:text-white">Why it's a good match</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400">Based on your profile, this aligns with your expertise in AI.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="flex-shrink-0 rounded-lg bg-primary/10 dark:bg-primary/20 p-2 text-primary">
+<span class="material-symbols-outlined text-xl"> view_list </span>
+</div>
+<div>
+<h4 class="font-semibold text-gray-900 dark:text-white">Related opportunities</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400">Explore similar grants in AI and technology.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="flex-shrink-0 rounded-lg bg-primary/10 dark:bg-primary/20 p-2 text-primary">
+<span class="material-symbols-outlined text-xl"> monitoring </span>
+</div>
+<div>
+<h4 class="font-semibold text-gray-900 dark:text-white">Trend data</h4>
+<p class="text-sm text-gray-500 dark:text-gray-400">Analyze funding trends and success rates.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="rounded-lg bg-background-light dark:bg-background-dark/50 p-6 ring-1 ring-gray-200/50 dark:ring-gray-700/50">
+<h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Source Information</h3>
+<div class="space-y-4">
+<a class="group flex items-center justify-between text-sm" href="#">
+<div class="flex items-center gap-3">
+<div class="flex-shrink-0 rounded-lg bg-gray-200 dark:bg-gray-700/50 p-2 text-gray-600 dark:text-gray-300">
+<span class="material-symbols-outlined text-xl"> link </span>
+</div>
+<span class="font-medium text-gray-900 dark:text-white">View original source</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 group-hover:text-primary transition-transform group-hover:translate-x-1">
+                        arrow_forward
+                      </span>
+</a>
+<div class="text-xs text-gray-500 dark:text-gray-400">Attribution: AI Grant Foundation</div>
+<button class="w-full text-left rounded-lg border border-red-500/20 dark:border-red-500/30 bg-red-500/5 dark:bg-red-500/10 px-3 py-2 text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-500/10 dark:hover:bg-red-500/20">
+                      Report an error
+                    </button>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+</main>
+<footer class="border-t border-gray-200/50 dark:border-gray-700/50">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+<div class="flex flex-col items-center justify-between gap-6 sm:flex-row">
+<p class="text-sm text-gray-500 dark:text-gray-400">© 2024 Lanscout. All rights reserved.</p>
+<div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+<a class="text-sm hover:text-primary" href="#">About</a>
+<a class="text-sm hover:text-primary" href="#">Contact</a>
+<a class="text-sm hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-sm hover:text-primary" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>

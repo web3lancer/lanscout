@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lanscout - Search Results</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1193d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      .form-select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<div class="flex flex-col min-h-screen">
+<header class="bg-background-light dark:bg-background-dark/50 backdrop-blur-sm sticky top-0 z-20 border-b border-gray-200/10 dark:border-gray-800/50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-2 text-gray-900 dark:text-white" href="#">
+<svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+<h1 class="text-xl font-bold">Lanscout</h1>
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-medium text-primary dark:text-primary" href="#">Opportunities</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Resources</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:block">
+<label class="relative">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<input class="form-input w-full min-w-0 flex-1 rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary pl-10 text-sm" placeholder="Search" type="search"/>
+</label>
+</div>
+<button class="hidden sm:flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-colors">
+<span>Post opportunity</span>
+</button>
+<div class="h-10 w-10 bg-center bg-no-repeat bg-cover rounded-full" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuABGGgTyFfI963U2he57R2Nzhm-EQ_dbrnokNKCJCsMlRuUQ1NZjuxe4_JFD4FLD3lxlp7c7EPtorL-Gs4Y9VMWMB7uytlLb9jtIqbrbiWABscBjJFJJnPTqYuPDQvTIRnGvFXVRKmv1EzZ_KFHzcffzxKwgjUdpN4kVbIjIoLHwBJZgg_vX2jziSasZH-t0Xw58L28G_D9OOBFyHOh1JeBNjobWz2KmavA4XTeS7pgAnsGIJNt4gj263yLJSLYJc2Qfa6xN8W7Xg');"></div>
+</div>
+</div>
+</div>
+</header>
+<main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<aside class="lg:col-span-1">
+<div class="bg-background-light dark:bg-background-dark/50 p-6 rounded-xl border border-gray-200/20 dark:border-gray-800/30 sticky top-24">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Filter</h2>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-gray-600 dark:text-gray-300 pb-2" for="category">Category</label>
+<select class="form-select w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="category">
+<option>All Categories</option>
+<option>Hackathons</option>
+<option>Grants</option>
+<option>Startup Funding</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-600 dark:text-gray-300 pb-2" for="location">Location</label>
+<select class="form-select w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="location">
+<option>Worldwide</option>
+<option>North America</option>
+<option>Europe</option>
+<option>Asia</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-600 dark:text-gray-300 pb-2" for="focus">Focus</label>
+<select class="form-select w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="focus">
+<option>Any</option>
+<option>AI</option>
+<option>Web3</option>
+<option>SaaS</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-600 dark:text-gray-300 pb-2" for="prize">Prize</label>
+<select class="form-select w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="prize">
+<option>Any Amount</option>
+<option>$1,000+</option>
+<option>$10,000+</option>
+<option>$50,000+</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-600 dark:text-gray-300 pb-2" for="eligibility">Eligibility</label>
+<select class="form-select w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="eligibility">
+<option>Everyone</option>
+<option>Students Only</option>
+<option>Startups</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-600 dark:text-gray-300 pb-2" for="deadline">Deadline</label>
+<select class="form-select w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" id="deadline">
+<option>Anytime</option>
+<option>Next 7 days</option>
+<option>Next 30 days</option>
+</select>
+</div>
+</div>
+</div>
+</aside>
+<div class="lg:col-span-3">
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+<div>
+<h1 class="text-3xl font-bold text-gray-900 dark:text-white">Hackathons</h1>
+<p class="text-gray-500 dark:text-gray-400 mt-1">Explore hackathons that match your interests and skills.</p>
+</div>
+<div class="flex items-center border border-gray-300/50 dark:border-gray-700/50 rounded-lg p-1 mt-4 sm:mt-0 bg-background-light dark:bg-background-dark/50">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded text-sm font-semibold bg-primary text-white">
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"></path>
+</svg>
+<span>List</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-1.5 rounded text-sm font-semibold text-gray-500 dark:text-gray-400 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-primary transition-colors">
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+</svg>
+<span>Grid</span>
+</button>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-background-light dark:bg-background-dark/50 p-4 rounded-xl border border-gray-200/20 dark:border-gray-800/30 flex flex-col md:flex-row items-start gap-6 hover:border-primary/50 dark:hover:border-primary/50 transition-all">
+<div class="w-full md:w-1/3 h-48 md:h-auto rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-ACw-H9t2czDNOv-c_yzFJAKSVKazZgDur55140qqJ2MBoZZ6vQUP7gKxZvf9bon83H5k2q0vhrOYDnWaZmE9N5kaxPxTLxKnmkHQBAjPRPtQxm2NWXZepuU6aKegvaeBSM7WF8O-pAqhRHvbG461PN9QyeFxGi65xqvX1B219UtvnmTuWpqNc7beoVRHqwY2cqAg_osms5jtQYsZh2T-86u3DXes_lhEyrYbwYSZ3wrKHJzh1FfXe9gz1E35BjjVaOeXdCwv0A");'></div>
+<div class="flex-1">
+<p class="text-sm font-medium text-primary mb-1">AI</p>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">AI Innovation Challenge</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm mt-1 mb-4">Develop AI solutions for real-world problems. Prizes include funding and mentorship.</p>
+<button class="bg-primary/10 dark:bg-primary/20 text-primary text-sm font-semibold py-2 px-4 rounded-lg hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">View Details</button>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark/50 p-4 rounded-xl border border-gray-200/20 dark:border-gray-800/30 flex flex-col md:flex-row items-start gap-6 hover:border-primary/50 dark:hover:border-primary/50 transition-all">
+<div class="w-full md:w-1/3 h-48 md:h-auto rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZrqiTeRnWG3gSNAuHjEDn3zs2FdXb_sdY9LTioDbWINl-Z6fxixzaL-YQpFJc1UjDgWjtTZU5Sp1fAtsAJlYE4Ay52LxgHj2aYx8w65Q5_4Ipv1i7uXFKYPHH8DKzxgsXXuuRibm6dbyNVXRRUj3B6VfrGXEBt-bf_08vxpTrs8bnfX3KVHwZMVgCK6U-aRTaJpO5LCZJjU505EHi1Iy5fk2MxKS2esFYvjAp5FwTWAxrMrftjtj9BnQLyCFBfT_ARs0A_Hufjw");'></div>
+<div class="flex-1">
+<p class="text-sm font-medium text-primary mb-1">Web Development</p>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Web Dev Hackfest</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm mt-1 mb-4">Build innovative web applications. Compete for cash prizes and recognition.</p>
+<button class="bg-primary/10 dark:bg-primary/20 text-primary text-sm font-semibold py-2 px-4 rounded-lg hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">View Details</button>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark/50 p-4 rounded-xl border border-gray-200/20 dark:border-gray-800/30 flex flex-col md:flex-row items-start gap-6 hover:border-primary/50 dark:hover:border-primary/50 transition-all">
+<div class="w-full md:w-1/3 h-48 md:h-auto rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBdV-GnD6yzIKsjTGGPGWCENeHIkihNp4KPfWkhux7NCwkrcRySm29S4AsUbuZSgbuB8yb-IauCMIkrp7JYQrTewotA0qU-ATMvcWRLC-4B1AxyETvwazMZMfb4WV2VjyhaD2loPi1EcB10tA0NHA8Hd3abLSyLEV7FYmWn7muM38YoHUrpDmtnyILwvdApCEp-Qx_kUsyAXXPKO8w_nzAGaSFlyq0acoz1pxJk4QoJNUrka7OWu4vHT67rFDN6oP_gMcNQJ8i_4w");'></div>
+<div class="flex-1">
+<p class="text-sm font-medium text-primary mb-1">Mobile Apps</p>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Mobile App Mania</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm mt-1 mb-4">Create cutting-edge mobile apps. Win prizes and gain exposure.</p>
+<button class="bg-primary/10 dark:bg-primary/20 text-primary text-sm font-semibold py-2 px-4 rounded-lg hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">View Details</button>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark/50 p-4 rounded-xl border border-gray-200/20 dark:border-gray-800/30 flex flex-col md:flex-row items-start gap-6 hover:border-primary/50 dark:hover:border-primary/50 transition-all">
+<div class="w-full md:w-1/3 h-48 md:h-auto rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZbm2RxUn3sWUoH4B5k0DHuQ8fUE2rPmU5zuX-IrST86pg4WkO7qv10z3oBMF1XALGxX4y3FPrC3xZ6gt20kbEpxHmakVmeqAU-pPl4qwIVuaWZkOEMk38bZfkG-3Y5jvzfS5ARW2UPdPc6rX0MQ07kS541Z8S3kShgOWMKOupRsJEmwtufte5MEp1HakWUZqb6_IHZdC8N-BIbtmGjWcDVaGYjrqTfdvtLOwNX09-sLdN1uJipHAxP5jYVEndvFUf9zsQKJrIdw");'></div>
+<div class="flex-1">
+<p class="text-sm font-medium text-primary mb-1">Data Science</p>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Data Dive Challenge</h3>
+<p class="text-gray-600 dark:text-gray-400 text-sm mt-1 mb-4">Analyze complex datasets and derive insights. Prizes include data science tools and resources.</p>
+<button class="bg-primary/10 dark:bg-primary/20 text-primary text-sm font-semibold py-2 px-4 rounded-lg hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">View Details</button>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-center mt-8">
+<nav class="flex items-center space-x-1">
+<a class="flex items-center justify-center h-10 w-10 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200/50 dark:hover:bg-gray-800/50 transition-colors" href="#">
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+</a>
+<a class="flex items-center justify-center h-10 w-10 rounded-full text-white bg-primary text-sm font-bold" href="#">1</a>
+<a class="flex items-center justify-center h-10 w-10 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200/50 dark:hover:bg-gray-800/50 text-sm font-medium transition-colors" href="#">2</a>
+<a class="flex items-center justify-center h-10 w-10 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200/50 dark:hover:bg-gray-800/50 text-sm font-medium transition-colors" href="#">3</a>
+<span class="flex items-center justify-center h-10 w-10 text-gray-500 dark:text-gray-400">...</span>
+<a class="flex items-center justify-center h-10 w-10 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200/50 dark:hover:bg-gray-800/50 text-sm font-medium transition-colors" href="#">10</a>
+<a class="flex items-center justify-center h-10 w-10 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200/50 dark:hover:bg-gray-800/50 transition-colors" href="#">
+<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</nav>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

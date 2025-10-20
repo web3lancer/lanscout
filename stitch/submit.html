@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lanscout - Submit an Opportunity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1193d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              display: ["Manrope"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      body {
+        font-family: "Manrope", sans-serif;
+      }
+      .form-input {
+        background-color: #192b33;
+        border-color: #325567;
+      }
+      .dark .form-input {
+        background-color: #192b33;
+        border-color: #325567;
+      }
+      .form-input:focus {
+        border-color: #1193d4;
+        box-shadow: none;
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-300">
+<div class="flex flex-col min-h-screen">
+<header class="bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm sticky top-0 z-10 border-b border-gray-200/50 dark:border-gray-500/20">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-2 text-gray-900 dark:text-white" href="#">
+<svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+<h2 class="text-lg font-bold">Lanscout</h2>
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Opportunities</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Community</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Learn</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:block">
+<label class="relative">
+<span class="sr-only">Search</span>
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 dark:text-gray-400">
+<svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.66 218.34l-50.07-50.06a88.11 88.11 0 1 0-11.31 11.31l50.06 50.07a8 8 0 0 0 11.32-11.32ZM40 112a72 72 0 1 1 72 72A72.08 72.08 0 0 1 40 112Z"></path>
+</svg>
+</span>
+<input class="w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" placeholder="Search" type="search"/>
+</label>
+</div>
+<button class="hidden sm:flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary/90 transition-colors">
+                Submit
+              </button>
+<button class="rounded-full">
+<img alt="User avatar" class="h-10 w-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXj0ZzUNHHABZRDG3jU3MCsaQfg84WRuBdiE0RwhGJ1lswIiBr8H5Np-25bPViLVNsAALaHYloWJOW5O00Ar-K-HDwbYYeB9ZS-6Cp2C2IUnn89-7fwfq00ypZmOgb63_5C9fF3iTu_-aYXNyiUPZDxDnFL_FplMz_PlCHVzc-KQUuwp4EmR3y61ZClqcMI8uMxPUSvI2_B9SUZnd-4unHW8G1aLotsnrd3ytucHCmPl_F_J74svrip3Rk8RDvgk70ElfB2mrV5w"/>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-12">
+<h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">Submit an Opportunity</h1>
+<p class="mt-4 text-lg text-gray-600 dark:text-gray-400">Found something cool? Share it with the community!</p>
+</div>
+<div class="bg-background-light dark:bg-background-dark/50 p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200/50 dark:border-gray-500/20">
+<div class="mb-8">
+<label class="block text-sm font-medium mb-2 text-gray-800 dark:text-gray-300" for="opportunity-url">Opportunity URL</label>
+<div class="flex">
+<input class="form-input flex-1 w-full min-w-0 resize-none overflow-hidden rounded-lg border bg-gray-100 dark:bg-gray-800 h-12 placeholder:text-gray-500 dark:placeholder:text-gray-400 px-4 text-base font-normal leading-normal focus:outline-none focus:ring-2 focus:ring-primary" id="opportunity-url" placeholder="https://example.com/hackathon" value=""/>
+</div>
+<p class="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                Paste a URL and we'll try to autofill the details.
+              </p>
+</div>
+<div class="relative mb-8">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-gray-300 dark:border-gray-700"></div>
+</div>
+<div class="relative flex justify-center">
+<span class="bg-background-light dark:bg-background-dark/50 px-2 text-sm text-gray-500 dark:text-gray-400">OR</span>
+</div>
+</div>
+<p class="text-center text-sm text-gray-600 dark:text-gray-400 mb-8">
+              Enter details manually if you don't have a URL.
+            </p>
+<div>
+<div class="mb-6">
+<h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-white mb-1">
+                  Progress
+                </h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Step 1 of 3: Opportunity Details</p>
+<div class="mt-3 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 33%"></div>
+</div>
+</div>
+<div class="flex justify-end mt-10">
+<button class="flex min-w-[120px] items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark transition-all">
+<span class="truncate">Next</span>
+<svg class="ml-2 h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" fill-rule="evenodd"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-background-light dark:bg-background-dark border-t border-gray-200/50 dark:border-gray-500/20">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+<a class="text-sm hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-sm hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-sm hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400">© 2024 Lanscout. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>
