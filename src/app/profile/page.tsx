@@ -17,6 +17,7 @@ import {
   Select,
   MenuItem,
   Chip,
+  ChipProps,
 } from '@mui/material';
 import { useState } from 'react';
 import Link from 'next/link';
@@ -184,7 +185,7 @@ export default function ProfilePage() {
                       <TableRow key={app.id}>
                         <TableCell sx={{ fontWeight: 500 }}>{app.title}</TableCell>
                         <TableCell>
-                          <Chip label={app.status} color={app.statusColor as any} size="small" />
+                          <Chip label={app.status} color={app.statusColor as ChipProps['color']} size="small" />
                         </TableCell>
                         <TableCell>{app.lastUpdated}</TableCell>
                       </TableRow>

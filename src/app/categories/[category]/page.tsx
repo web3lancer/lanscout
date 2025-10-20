@@ -22,10 +22,10 @@ import { useState as ReactUseState } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ViewListIcon from '@mui/icons-material/ViewList';
-import ViewAgendaIcon from '@mui/icons-material/ViewAgenda';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ViewListIcon from '@mui/icons-material/ViewComfy';
+import ViewAgendaIcon from '@mui/icons-material/GridView';
+import ArrowBackIcon from '@mui/icons-material/NavigateBefore';
+import ArrowForwardIcon from '@mui/icons-material/NavigateNext';
 
 interface Opportunity {
   id: number;

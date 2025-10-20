@@ -21,8 +21,8 @@ import {
   Chip,
   Pagination,
 } from '@mui/material';
-import ViewListIcon from '@mui/icons-material/ViewList';
-import ViewWeekIcon from '@mui/icons-material/ViewWeek';
+import GridViewIcon from '@mui/icons-material/GridView';
+import ListIcon from '@mui/icons-material/List';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -159,10 +159,10 @@ export default function Category() {
                     sx={{ mt: { xs: 2, sm: 0 } }}
                   >
                     <ToggleButton value="list">
-                      <ViewListIcon />
+                      <ListIcon />
                     </ToggleButton>
                     <ToggleButton value="grid">
-                      <ViewWeekIcon />
+                      <GridViewIcon />
                     </ToggleButton>
                   </ToggleButtonGroup>
                 </Box>
