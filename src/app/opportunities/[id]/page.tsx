@@ -1,14 +1,64 @@
 'use client';
 
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import Link from 'next/link';
 
-export default function OpportunityDetail() {
+interface Opportunity {
+  id: string;
+  title: string;
+  description: string;
+  type: string;
+  status: string;
+  deadline: string;
+  location: string;
+  tags: string[];
+  match: string;
+  relatedOpportunities: number;
+  trendData: string;
+}
+
+const opportunitiesData: Record<string, Opportunity> = {
+  '1': {
+    id: '1',
+    title: 'AI Grant for Innovative Projects',
+    description:
+      'This grant supports innovative projects that utilize artificial intelligence to address significant challenges across various sectors. We encourage applications from individuals and teams with groundbreaking ideas and a commitment to making a positive impact. Projects should demonstrate a clear understanding of the problem, a novel approach using AI, and a potential for scalability and real-world application. Funding amounts vary based on project scope and impact.',
+    type: 'Grant',
+    status: 'Open',
+    deadline: 'October 31, 2024',
+    location: 'Remote',
+    tags: ['AI', 'Machine Learning', 'Innovation', 'Technology', 'Funding'],
+    match: 'Based on your profile, this aligns with your expertise in AI.',
+    relatedOpportunities: 12,
+    trendData: 'AI funding has increased 40% year-over-year',
+  },
+  '2': {
+    id: '2',
+    title: 'Web3 Developer Hackathon',
+    description:
+      'Join us for an exciting hackathon focused on Web3 technologies and blockchain development. This is a great opportunity to collaborate with fellow developers, learn new skills, and potentially win prizes. Teams of 3-5 people are preferred. All skill levels are welcome.',
+    type: 'Hackathon',
+    status: 'Open',
+    deadline: 'November 15, 2024',
+    location: 'San Francisco, CA',
+    tags: ['Web3', 'Blockchain', 'Hackathon', 'Development', 'Community'],
+    match: 'Perfect opportunity to showcase your Web3 development skills.',
+    relatedOpportunities: 8,
+    trendData: 'Web3 hackathons are trending with 50+ events this quarter',
+  },
+};
+
+export default function OpportunityDetailPage() {
+  const params = useParams();
+  const id = params.id as string;
+  const opportunity = opportunitiesData[id] || opportunitiesData['1'];
+
   return (
-    <div className="flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark">
       <Header />
-      <main className="w-full flex-1">
+      <main className="flex-grow w-full">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <div className="space-y-12">
             <div className="space-y-6">
@@ -17,15 +67,15 @@ export default function OpportunityDetail() {
                   Opportunities
                 </Link>
                 <span className="mx-2">/</span>
-                <span className="text-gray-800 dark:text-gray-200">AI Grant</span>
+                <span className="text-gray-800 dark:text-gray-200">{opportunity.title}</span>
               </div>
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                 <div className="space-y-2">
                   <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">
-                    AI Grant for Innovative Projects
+                    {opportunity.title}
                   </h1>
                   <p className="text-gray-500 dark:text-gray-400 max-w-2xl">
-                    Funding for projects leveraging AI to solve real-world problems. Open to individuals and teams.
+                    {opportunity.description.substring(0, 100)}...
                   </p>
                 </div>
                 <button className="flex-shrink-0 inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark">
@@ -33,6 +83,7 @@ export default function OpportunityDetail() {
                 </button>
               </div>
             </div>
+
             <div className="border-b border-gray-200/50 dark:border-gray-700/50">
               <nav className="-mb-px flex space-x-8">
                 <button className="border-primary text-primary whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium">
@@ -43,6 +94,7 @@ export default function OpportunityDetail() {
                 </button>
               </nav>
             </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-8">
                 <section>
@@ -52,57 +104,57 @@ export default function OpportunityDetail() {
                   <div className="divide-y divide-gray-200/50 dark:divide-gray-700/50 border-t border-gray-200/50 dark:border-gray-700/50">
                     <div className="py-4 grid grid-cols-3 gap-4">
                       <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Type</dt>
-                      <dd className="text-sm text-gray-900 dark:text-white col-span-2">Grant</dd>
+                      <dd className="text-sm text-gray-900 dark:text-white col-span-2">
+                        {opportunity.type}
+                      </dd>
                     </div>
                     <div className="py-4 grid grid-cols-3 gap-4">
                       <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Status</dt>
                       <dd className="text-sm text-gray-900 dark:text-white col-span-2">
                         <span className="inline-flex items-center rounded-full bg-green-100 dark:bg-green-900/50 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:text-green-300">
-                          Open
+                          {opportunity.status}
                         </span>
                       </dd>
                     </div>
                     <div className="py-4 grid grid-cols-3 gap-4">
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Deadline</dt>
-                      <dd className="text-sm text-gray-900 dark:text-white col-span-2">October 31, 2024</dd>
+                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                        Deadline
+                      </dt>
+                      <dd className="text-sm text-gray-900 dark:text-white col-span-2">
+                        {opportunity.deadline}
+                      </dd>
                     </div>
                     <div className="py-4 grid grid-cols-3 gap-4">
-                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">Location</dt>
-                      <dd className="text-sm text-gray-900 dark:text-white col-span-2">Remote</dd>
+                      <dt className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                        Location
+                      </dt>
+                      <dd className="text-sm text-gray-900 dark:text-white col-span-2">
+                        {opportunity.location}
+                      </dd>
                     </div>
                   </div>
                 </section>
+
                 <section>
                   <div className="text-gray-600 dark:text-gray-300 space-y-4">
-                    <p>
-                      This grant supports innovative projects that utilize artificial intelligence to address significant
-                      challenges across various sectors. We encourage applications from individuals and teams with
-                      groundbreaking ideas and a commitment to making a positive impact. Projects should demonstrate a clear
-                      understanding of the problem, a novel approach using AI, and a potential for scalability and real-world
-                      application. Funding amounts vary based on project scope and impact.
-                    </p>
+                    <p>{opportunity.description}</p>
                   </div>
                 </section>
+
                 <section>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Tags</h3>
                   <div className="flex flex-wrap gap-2">
-                    <span className="rounded bg-primary/10 dark:bg-primary/20 px-2 py-1 text-sm font-medium text-primary">
-                      AI
-                    </span>
-                    <span className="rounded bg-primary/10 dark:bg-primary/20 px-2 py-1 text-sm font-medium text-primary">
-                      Machine Learning
-                    </span>
-                    <span className="rounded bg-primary/10 dark:bg-primary/20 px-2 py-1 text-sm font-medium text-primary">
-                      Innovation
-                    </span>
-                    <span className="rounded bg-primary/10 dark:bg-primary/20 px-2 py-1 text-sm font-medium text-primary">
-                      Technology
-                    </span>
-                    <span className="rounded bg-primary/10 dark:bg-primary/20 px-2 py-1 text-sm font-medium text-primary">
-                      Funding
-                    </span>
+                    {opportunity.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded bg-primary/10 dark:bg-primary/20 px-2 py-1 text-sm font-medium text-primary"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </section>
+
                 <section className="flex items-center gap-4 pt-4">
                   <button className="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark">
                     Apply Now
@@ -111,6 +163,7 @@ export default function OpportunityDetail() {
                     Save
                   </button>
                 </section>
+
                 <section>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Share</h3>
                   <div className="flex items-center gap-4">
@@ -123,7 +176,12 @@ export default function OpportunityDetail() {
                           viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C9.344 12.33 9.962 11.297 10.533 10.236C11.211 8.952 11.818 7.58 12.331 6.116M12 12m0 0c1.105-2.811 2.909-5.228 5.198-6.893m0 0h4.026m-4.026 0v4.026M5.228 20.856a9 9 0 006.514-3.5m2.25-10.165a9 9 0 018.514 5.176m0 0l3.756 5.25" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M8.684 13.342C9.344 12.33 9.962 11.297 10.533 10.236C11.211 8.952 11.818 7.58 12.331 6.116M12 12m0 0c1.105-2.811 2.909-5.228 5.198-6.893m0 0h4.026m-4.026 0v4.026M5.228 20.856a9 9 0 006.514-3.5m2.25-10.165a9 9 0 018.514 5.176m0 0l3.756 5.25"
+                          />
                         </svg>
                       </div>
                       <span>Share</span>
@@ -150,6 +208,7 @@ export default function OpportunityDetail() {
                   </div>
                 </section>
               </div>
+
               <aside className="space-y-8">
                 <div className="rounded-lg bg-background-light dark:bg-background-dark/50 p-6 ring-1 ring-gray-200/50 dark:ring-gray-700/50">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
@@ -179,10 +238,10 @@ export default function OpportunityDetail() {
                         </svg>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900 dark:text-white">Why it&apos;s a good match</h4>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                          Based on your profile, this aligns with your expertise in AI.
-                        </p>
+                        <h4 className="font-semibold text-gray-900 dark:text-white">
+                          Why it&apos;s a good match
+                        </h4>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">{opportunity.match}</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-4">
@@ -197,9 +256,11 @@ export default function OpportunityDetail() {
                         </svg>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900 dark:text-white">Related opportunities</h4>
+                        <h4 className="font-semibold text-gray-900 dark:text-white">
+                          Related opportunities
+                        </h4>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
-                          Explore similar grants in AI and technology.
+                          Explore {opportunity.relatedOpportunities} similar opportunities.
                         </p>
                       </div>
                     </li>
@@ -217,14 +278,17 @@ export default function OpportunityDetail() {
                       <div>
                         <h4 className="font-semibold text-gray-900 dark:text-white">Trend data</h4>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
-                          Analyze funding trends and success rates.
+                          {opportunity.trendData}
                         </p>
                       </div>
                     </li>
                   </ul>
                 </div>
+
                 <div className="rounded-lg bg-background-light dark:bg-background-dark/50 p-6 ring-1 ring-gray-200/50 dark:ring-gray-700/50">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Source Information</h3>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                    Source Information
+                  </h3>
                   <div className="space-y-4">
                     <button className="group flex items-center justify-between text-sm w-full">
                       <div className="flex items-center gap-3">
@@ -253,10 +317,17 @@ export default function OpportunityDetail() {
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
                       </svg>
                     </button>
-                    <div className="text-xs text-gray-500 dark:text-gray-400">Attribution: AI Grant Foundation</div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400">
+                      Attribution: Opportunity Source
+                    </div>
                     <button className="w-full text-left rounded-lg border border-red-500/20 dark:border-red-500/30 bg-red-500/5 dark:bg-red-500/10 px-3 py-2 text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-500/10 dark:hover:bg-red-500/20">
                       Report an error
                     </button>

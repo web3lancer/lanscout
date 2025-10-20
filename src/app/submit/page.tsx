@@ -33,7 +33,7 @@ export default function Submit() {
                 />
               </div>
               <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                Paste a URL and we'll try to autofill the details.
+                Paste a URL and we&apos;ll try to autofill the details.
               </p>
             </div>
             <div className="relative mb-8">
@@ -47,7 +47,7 @@ export default function Submit() {
               </div>
             </div>
             <p className="text-center text-sm text-gray-600 dark:text-gray-400 mb-8">
-              Enter details manually if you don't have a URL.
+              Enter details manually if you don&apos;t have a URL.
             </p>
             <div>
               <div className="mb-6">
