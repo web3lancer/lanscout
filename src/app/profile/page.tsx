@@ -1,9 +1,30 @@
 'use client';
 
+import {
+  Box,
+  Button,
+  Container,
+  Divider,
+  Grid,
+  Paper,
+  Stack,
+  TextField,
+  Typography,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Select,
+  MenuItem,
+  Chip,
+} from '@mui/material';
+import { useState } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useState } from 'react';
+import SaveIcon from '@mui/icons-material/Save';
 
 export default function ProfilePage() {
   const [interests, setInterests] = useState('');
@@ -37,240 +58,189 @@ export default function ProfilePage() {
       id: 1,
       title: 'AI Hackathon',
       status: 'Applied',
-      statusColor: 'bg-primary/20 text-primary',
+      statusColor: 'success',
       lastUpdated: '2024-02-20',
     },
     {
       id: 2,
       title: 'Startup Grant for AI Research',
       status: 'In Review',
-      statusColor: 'bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-300',
+      statusColor: 'warning',
       lastUpdated: '2024-03-05',
     },
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-background-light dark:bg-background-dark">
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
-      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-8">
-            My Dashboard
-          </h1>
+      <Box component="main" sx={{ flex: 1, width: '100%' }}>
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+          <Stack spacing={6} sx={{ maxWidth: '60rem', mx: 'auto' }}>
+            <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
+              My Dashboard
+            </Typography>
 
-          <div className="space-y-12">
-            {/* My Interests & Skills */}
-            <section>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-4 mb-6">
+            <Box>
+              <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 3, pb: 2, borderBottom: 1, borderColor: 'divider' }}>
                 My Interests & Skills
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="interests"
-                    className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
-                  >
-                    Interests & Skills
-                  </label>
-                  <input
-                    id="interests"
-                    type="text"
-                    placeholder="e.g., AI, Web3, SaaS"
-                    value={interests}
-                    onChange={(e) => setInterests(e.target.value)}
-                    className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-background-light dark:bg-slate-800 px-4 py-2 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Add tags separated by commas.
-                  </p>
-                </div>
-                <div>
-                  <label
-                    htmlFor="industry"
-                    className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
-                  >
-                    Industry Preferences
-                  </label>
-                  <select
-                    id="industry"
-                    value={industry}
-                    onChange={(e) => setIndustry(e.target.value)}
-                    className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-background-light dark:bg-slate-800 px-4 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
-                  >
-                    <option value="">Select an industry</option>
-                    <option value="technology">Technology</option>
-                    <option value="healthcare">Healthcare</option>
-                    <option value="finance">Finance</option>
-                    <option value="education">Education</option>
-                  </select>
-                </div>
-              </div>
-              <div className="mt-4 flex justify-end">
-                <button className="px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-colors">
+              </Typography>
+              <Grid container spacing={3} sx={{ mb: 3 }}>
+                <Grid item xs={12} sm={6}>
+                  <Stack spacing={1}>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 500 }}>
+                      Interests & Skills
+                    </Typography>
+                    <TextField
+                      fullWidth
+                      placeholder="e.g., AI, Web3, SaaS"
+                      value={interests}
+                      onChange={(e) => setInterests(e.target.value)}
+                      size="small"
+                    />
+                    <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                      Add tags separated by commas.
+                    </Typography>
+                  </Stack>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Stack spacing={1}>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 500 }}>
+                      Industry Preferences
+                    </Typography>
+                    <Select
+                      value={industry}
+                      onChange={(e) => setIndustry(e.target.value)}
+                      displayEmpty
+                      size="small"
+                    >
+                      <MenuItem value="">Select an industry</MenuItem>
+                      <MenuItem value="technology">Technology</MenuItem>
+                      <MenuItem value="healthcare">Healthcare</MenuItem>
+                      <MenuItem value="finance">Finance</MenuItem>
+                      <MenuItem value="education">Education</MenuItem>
+                    </Select>
+                  </Stack>
+                </Grid>
+              </Grid>
+              <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Button variant="contained" startIcon={<SaveIcon />}>
                   Save Changes
-                </button>
-              </div>
-            </section>
+                </Button>
+              </Box>
+            </Box>
 
-            {/* Saved Opportunities */}
-            <section>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-4 mb-6">
+            <Box>
+              <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 3, pb: 2, borderBottom: 1, borderColor: 'divider' }}>
                 Saved Opportunities
-              </h2>
-              <div className="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800">
-                <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-800">
-                  <thead className="bg-slate-50 dark:bg-slate-800/50">
-                    <tr>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider"
-                      >
-                        Opportunity
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider"
-                      >
-                        Type
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider"
-                      >
-                        Deadline
-                      </th>
-                      <th scope="col" className="relative px-6 py-3">
-                        <span className="sr-only">Actions</span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-background-light dark:bg-background-dark divide-y divide-slate-200 dark:divide-slate-800">
+              </Typography>
+              <TableContainer>
+                <Table>
+                  <TableHead>
+                    <TableRow sx={{ bgcolor: 'action.hover' }}>
+                      <TableCell sx={{ fontWeight: 'bold' }}>Opportunity</TableCell>
+                      <TableCell sx={{ fontWeight: 'bold' }}>Type</TableCell>
+                      <TableCell sx={{ fontWeight: 'bold' }}>Deadline</TableCell>
+                      <TableCell sx={{ fontWeight: 'bold' }} align="right">
+                        Actions
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
                     {savedOpportunities.map((opportunity) => (
-                      <tr key={opportunity.id}>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900 dark:text-white">
-                          {opportunity.title}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">
-                          {opportunity.type}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">
-                          {opportunity.deadline}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <TableRow key={opportunity.id}>
+                        <TableCell sx={{ fontWeight: 500 }}>{opportunity.title}</TableCell>
+                        <TableCell>{opportunity.type}</TableCell>
+                        <TableCell>{opportunity.deadline}</TableCell>
+                        <TableCell align="right">
                           <Link
                             href={`/opportunities/${opportunity.id}`}
-                            className="text-primary hover:text-primary/80"
+                            style={{ textDecoration: 'none' }}
                           >
-                            View
+                            <Button variant="text" size="small" sx={{ textTransform: 'none' }}>
+                              View
+                            </Button>
                           </Link>
-                        </td>
-                      </tr>
+                        </TableCell>
+                      </TableRow>
                     ))}
-                  </tbody>
-                </table>
-              </div>
-            </section>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Box>
 
-            {/* Application Tracker */}
-            <section>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-4 mb-6">
+            <Box>
+              <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 3, pb: 2, borderBottom: 1, borderColor: 'divider' }}>
                 Application Tracker
-              </h2>
-              <div className="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-800">
-                <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-800">
-                  <thead className="bg-slate-50 dark:bg-slate-800/50">
-                    <tr>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider"
-                      >
-                        Opportunity
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider"
-                      >
-                        Status
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-left text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider"
-                      >
-                        Last Updated
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-background-light dark:bg-background-dark divide-y divide-slate-200 dark:divide-slate-800">
+              </Typography>
+              <TableContainer>
+                <Table>
+                  <TableHead>
+                    <TableRow sx={{ bgcolor: 'action.hover' }}>
+                      <TableCell sx={{ fontWeight: 'bold' }}>Opportunity</TableCell>
+                      <TableCell sx={{ fontWeight: 'bold' }}>Status</TableCell>
+                      <TableCell sx={{ fontWeight: 'bold' }}>Last Updated</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
                     {applications.map((app) => (
-                      <tr key={app.id}>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900 dark:text-white">
-                          {app.title}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm">
-                          <span
-                            className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${app.statusColor}`}
-                          >
-                            {app.status}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500 dark:text-slate-400">
-                          {app.lastUpdated}
-                        </td>
-                      </tr>
+                      <TableRow key={app.id}>
+                        <TableCell sx={{ fontWeight: 500 }}>{app.title}</TableCell>
+                        <TableCell>
+                          <Chip label={app.status} color={app.statusColor as any} size="small" />
+                        </TableCell>
+                        <TableCell>{app.lastUpdated}</TableCell>
+                      </TableRow>
                     ))}
-                  </tbody>
-                </table>
-              </div>
-            </section>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Box>
 
-            {/* Account Settings */}
-            <section>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-800 pb-4 mb-6">
+            <Box>
+              <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 3, pb: 2, borderBottom: 1, borderColor: 'divider' }}>
                 Account Settings
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
-                  >
-                    Email Preferences
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-background-light dark:bg-slate-800 px-4 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="password"
-                    className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
-                  >
-                    Change Password
-                  </label>
-                  <input
-                    id="password"
-                    type="password"
-                    placeholder="New Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="w-full rounded-lg border border-slate-300 dark:border-slate-700 bg-background-light dark:bg-slate-800 px-4 py-2 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-              </div>
-              <div className="mt-4 flex justify-end">
-                <button className="px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-colors">
+              </Typography>
+              <Grid container spacing={3} sx={{ mb: 3 }}>
+                <Grid item xs={12} sm={6}>
+                  <Stack spacing={1}>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 500 }}>
+                      Email Preferences
+                    </Typography>
+                    <TextField
+                      fullWidth
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      size="small"
+                    />
+                  </Stack>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Stack spacing={1}>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 500 }}>
+                      Change Password
+                    </Typography>
+                    <TextField
+                      fullWidth
+                      type="password"
+                      placeholder="New Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      size="small"
+                    />
+                  </Stack>
+                </Grid>
+              </Grid>
+              <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Button variant="contained" startIcon={<SaveIcon />}>
                   Update Account
-                </button>
-              </div>
-            </section>
-          </div>
-        </div>
-      </main>
+                </Button>
+              </Box>
+            </Box>
+          </Stack>
+        </Container>
+      </Box>
       <Footer />
-    </div>
+    </Box>
   );
 }

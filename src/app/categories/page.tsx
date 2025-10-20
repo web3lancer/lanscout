@@ -2,6 +2,27 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import {
+  Box,
+  Container,
+  FormControl,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Paper,
+  Select,
+  Stack,
+  ToggleButton,
+  ToggleButtonGroup,
+  Typography,
+  Card,
+  CardContent,
+  CardMedia,
+  Chip,
+  Pagination,
+} from '@mui/material';
+import ViewListIcon from '@mui/icons-material/ViewList';
+import ViewWeekIcon from '@mui/icons-material/ViewWeek';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -53,219 +74,147 @@ export default function Category() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          <aside className="lg:col-span-1">
-            <div className="bg-background-light dark:bg-background-dark/50 p-6 rounded-xl border border-gray-200/20 dark:border-gray-800/30 sticky top-24">
-              <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Filter</h2>
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 pb-2" htmlFor="category">
-                    Category
-                  </label>
-                  <select
-                    className="w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary"
-                    id="category"
+      <Box component="main" sx={{ flex: 1, py: 4 }}>
+        <Container maxWidth="lg">
+          <Grid container spacing={4}>
+            <Grid item xs={12} lg={3}>
+              <Paper sx={{ p: 3, position: 'sticky', top: 100 }}>
+                <Typography variant="h6" sx={{ fontWeight: 700, mb: 3 }}>
+                  Filter
+                </Typography>
+                <Stack spacing={3}>
+                  <FormControl fullWidth size="small">
+                    <InputLabel>Category</InputLabel>
+                    <Select defaultValue="All Categories" label="Category">
+                      <MenuItem value="All Categories">All Categories</MenuItem>
+                      <MenuItem value="Hackathons">Hackathons</MenuItem>
+                      <MenuItem value="Grants">Grants</MenuItem>
+                      <MenuItem value="Startup Funding">Startup Funding</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <FormControl fullWidth size="small">
+                    <InputLabel>Location</InputLabel>
+                    <Select defaultValue="Worldwide" label="Location">
+                      <MenuItem value="Worldwide">Worldwide</MenuItem>
+                      <MenuItem value="North America">North America</MenuItem>
+                      <MenuItem value="Europe">Europe</MenuItem>
+                      <MenuItem value="Asia">Asia</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <FormControl fullWidth size="small">
+                    <InputLabel>Focus</InputLabel>
+                    <Select defaultValue="Any" label="Focus">
+                      <MenuItem value="Any">Any</MenuItem>
+                      <MenuItem value="AI">AI</MenuItem>
+                      <MenuItem value="Web3">Web3</MenuItem>
+                      <MenuItem value="SaaS">SaaS</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <FormControl fullWidth size="small">
+                    <InputLabel>Prize</InputLabel>
+                    <Select defaultValue="Any Amount" label="Prize">
+                      <MenuItem value="Any Amount">Any Amount</MenuItem>
+                      <MenuItem value="1000">$1,000+</MenuItem>
+                      <MenuItem value="10000">$10,000+</MenuItem>
+                      <MenuItem value="50000">$50,000+</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <FormControl fullWidth size="small">
+                    <InputLabel>Eligibility</InputLabel>
+                    <Select defaultValue="Everyone" label="Eligibility">
+                      <MenuItem value="Everyone">Everyone</MenuItem>
+                      <MenuItem value="Students Only">Students Only</MenuItem>
+                      <MenuItem value="Startups">Startups</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <FormControl fullWidth size="small">
+                    <InputLabel>Deadline</InputLabel>
+                    <Select defaultValue="Anytime" label="Deadline">
+                      <MenuItem value="Anytime">Anytime</MenuItem>
+                      <MenuItem value="Next 7 days">Next 7 days</MenuItem>
+                      <MenuItem value="Next 30 days">Next 30 days</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Stack>
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} lg={9}>
+              <Stack spacing={3}>
+                <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' } }}>
+                  <Box>
+                    <Typography variant="h5" sx={{ fontWeight: 700 }}>
+                      {category}
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: 'text.secondary', mt: 0.5 }}>
+                      Explore {category.toLowerCase()} that match your interests and skills.
+                    </Typography>
+                  </Box>
+                  <ToggleButtonGroup
+                    value={viewMode}
+                    exclusive
+                    onChange={(_, newView) => newView && setViewMode(newView)}
+                    sx={{ mt: { xs: 2, sm: 0 } }}
                   >
-                    <option>All Categories</option>
-                    <option>Hackathons</option>
-                    <option>Grants</option>
-                    <option>Startup Funding</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 pb-2" htmlFor="location">
-                    Location
-                  </label>
-                  <select
-                    className="w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary"
-                    id="location"
-                  >
-                    <option>Worldwide</option>
-                    <option>North America</option>
-                    <option>Europe</option>
-                    <option>Asia</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 pb-2" htmlFor="focus">
-                    Focus
-                  </label>
-                  <select
-                    className="w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary"
-                    id="focus"
-                  >
-                    <option>Any</option>
-                    <option>AI</option>
-                    <option>Web3</option>
-                    <option>SaaS</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 pb-2" htmlFor="prize">
-                    Prize
-                  </label>
-                  <select
-                    className="w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary"
-                    id="prize"
-                  >
-                    <option>Any Amount</option>
-                    <option>$1,000+</option>
-                    <option>$10,000+</option>
-                    <option>$50,000+</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 pb-2" htmlFor="eligibility">
-                    Eligibility
-                  </label>
-                  <select
-                    className="w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary"
-                    id="eligibility"
-                  >
-                    <option>Everyone</option>
-                    <option>Students Only</option>
-                    <option>Startups</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 pb-2" htmlFor="deadline">
-                    Deadline
-                  </label>
-                  <select
-                    className="w-full rounded-lg border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary"
-                    id="deadline"
-                  >
-                    <option>Anytime</option>
-                    <option>Next 7 days</option>
-                    <option>Next 30 days</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </aside>
-          <div className="lg:col-span-3">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
-              <div>
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{category}</h1>
-                <p className="text-gray-500 dark:text-gray-400 mt-1">
-                  Explore {category.toLowerCase()} that match your interests and skills.
-                </p>
-              </div>
-              <div className="flex items-center border border-gray-300/50 dark:border-gray-700/50 rounded-lg p-1 mt-4 sm:mt-0 bg-background-light dark:bg-background-dark/50">
-                <button
-                  onClick={() => setViewMode('list')}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded text-sm font-semibold transition-colors ${
-                    viewMode === 'list'
-                      ? 'bg-primary text-white'
-                      : 'text-gray-500 dark:text-gray-400 hover:bg-primary/10'
-                  }`}
-                >
-                  <svg
-                    className="h-5 w-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"></path>
-                  </svg>
-                  <span>List</span>
-                </button>
-                <button
-                  onClick={() => setViewMode('grid')}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded text-sm font-semibold transition-colors ${
-                    viewMode === 'grid'
-                      ? 'bg-primary text-white'
-                      : 'text-gray-500 dark:text-gray-400 hover:bg-primary/10'
-                  }`}
-                >
-                  <svg
-                    className="h-5 w-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                  </svg>
-                  <span>Grid</span>
-                </button>
-              </div>
-            </div>
-            <div className="space-y-6">
-              {opportunities.map((opp) => (
-                <Link
-                  key={opp.id}
-                  href={`/opportunities/${opp.id}`}
-                  className="bg-background-light dark:bg-background-dark/50 p-4 rounded-xl border border-gray-200/20 dark:border-gray-800/30 flex flex-col md:flex-row items-start gap-6 hover:border-primary/50 dark:hover:border-primary/50 transition-all"
-                >
-                  <div
-                    className="w-full md:w-1/3 h-48 md:h-auto rounded-lg bg-cover bg-center"
-                    style={{ backgroundImage: `url("${opp.image}")` }}
-                  ></div>
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-primary mb-1">{opp.category}</p>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">{opp.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm mt-1 mb-4">{opp.description}</p>
-                    <button className="bg-primary/10 dark:bg-primary/20 text-primary text-sm font-semibold py-2 px-4 rounded-lg hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
-                      View Details
-                    </button>
-                  </div>
-                </Link>
-              ))}
-            </div>
-            <div className="flex items-center justify-center mt-8">
-              <nav className="flex items-center space-x-1">
-                <button className="flex items-center justify-center h-10 w-10 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200/50 dark:hover:bg-gray-800/50 transition-colors">
-                  <svg
-                    className="h-5 w-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                      fillRule="evenodd"
-                    ></path>
-                  </svg>
-                </button>
-                <button className="flex items-center justify-center h-10 w-10 rounded-full text-white bg-primary text-sm font-bold">
-                  1
-                </button>
-                <button className="flex items-center justify-center h-10 w-10 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200/50 dark:hover:bg-gray-800/50 text-sm font-medium transition-colors">
-                  2
-                </button>
-                <button className="flex items-center justify-center h-10 w-10 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200/50 dark:hover:bg-gray-800/50 text-sm font-medium transition-colors">
-                  3
-                </button>
-                <span className="flex items-center justify-center h-10 w-10 text-gray-500 dark:text-gray-400">
-                  ...
-                </span>
-                <button className="flex items-center justify-center h-10 w-10 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200/50 dark:hover:bg-gray-800/50 text-sm font-medium transition-colors">
-                  10
-                </button>
-                <button className="flex items-center justify-center h-10 w-10 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-200/50 dark:hover:bg-gray-800/50 transition-colors">
-                  <svg
-                    className="h-5 w-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clipRule="evenodd"
-                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      fillRule="evenodd"
-                    ></path>
-                  </svg>
-                </button>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </main>
+                    <ToggleButton value="list">
+                      <ViewListIcon />
+                    </ToggleButton>
+                    <ToggleButton value="grid">
+                      <ViewWeekIcon />
+                    </ToggleButton>
+                  </ToggleButtonGroup>
+                </Box>
+
+                <Stack spacing={2}>
+                  {opportunities.map((opp) => (
+                    <Card
+                      key={opp.id}
+                      component={Link}
+                      href={`/opportunities/${opp.id}`}
+                      sx={{
+                        display: 'flex',
+                        flexDirection: { xs: 'column', md: 'row' },
+                        cursor: 'pointer',
+                        transition: 'all 0.2s',
+                        '&:hover': { boxShadow: 4 },
+                        textDecoration: 'none',
+                        color: 'inherit',
+                      }}
+                    >
+                      <CardMedia
+                        component="div"
+                        sx={{
+                          width: { xs: '100%', md: '40%' },
+                          height: { xs: 200, md: 'auto' },
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                        }}
+                        image={opp.image}
+                      />
+                      <CardContent sx={{ flex: 1 }}>
+                        <Chip label={opp.category} size="small" color="primary" variant="outlined" sx={{ mb: 1 }} />
+                        <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
+                          {opp.title}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
+                          {opp.description}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </Stack>
+
+                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+                  <Pagination count={10} page={1} />
+                </Box>
+              </Stack>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
       <Footer />
-    </div>
+    </Box>
   );
 }
