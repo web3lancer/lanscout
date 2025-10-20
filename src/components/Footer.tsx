@@ -1,42 +1,27 @@
 'use client';
 
-import { Box, Container, Link as MuiLink, Typography, useTheme } from '@mui/material';
-
 export default function Footer() {
-  const theme = useTheme();
-
   return (
-    <Box component="footer" sx={{ borderTop: `1px solid ${theme.palette.divider}`, mt: 8 }}>
-      <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, alignItems: 'center', justifyContent: 'space-between', gap: 3 }}>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            © 2024 Lanscout. All rights reserved.
-          </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
-            <MuiLink href="#privacy" underline="hover" sx={{ fontSize: '0.875rem', color: 'text.secondary', '&:hover': { color: 'primary.main' } }}>
+    <footer className="border-t border-gray-200/50 dark:border-gray-700/50 bg-background-light dark:bg-background-dark">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+          <p className="text-sm text-gray-500 dark:text-gray-400">© 2024 Lanscout. All rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <a href="#about" className="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
+              About
+            </a>
+            <a href="#contact" className="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
+              Contact
+            </a>
+            <a href="#privacy" className="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
               Privacy Policy
-            </MuiLink>
-            <MuiLink href="#terms" underline="hover" sx={{ fontSize: '0.875rem', color: 'text.secondary', '&:hover': { color: 'primary.main' } }}>
+            </a>
+            <a href="#terms" className="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
               Terms of Service
-            </MuiLink>
-          </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-            <MuiLink href="#twitter" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, display: 'flex', alignItems: 'center' }}>
-              <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"></path>
-              </svg>
-            </MuiLink>
-            <MuiLink href="#instagram" sx={{ color: 'text.secondary', '&:hover': { color: 'primary.main' }, display: 'flex', alignItems: 'center' }}>
-              <svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40Z"></path>
-              </svg>
-            </MuiLink>
-          </Box>
-        </Box>
-        <Typography variant="caption" sx={{ mt: 3, display: 'block', textAlign: 'center', color: 'text.secondary' }}>
-          API attribution and other legal notices can be placed here.
-        </Typography>
-      </Container>
-    </Box>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }

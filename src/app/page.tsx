@@ -1,8 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { Box, Button, Container, Paper, Stack, TextField, Typography } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -12,22 +10,19 @@ export default function Home() {
       id: 1,
       title: 'Hackathon Extravaganza',
       description: 'Join the ultimate coding challenge and win big!',
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuAUSQluDYM-BKw3UvvxRKI8cVSfOkmgixDYdbBYROsZ4us697t8wWHVKpNfyVspqS0nk0QW14BZOXbPzkbCE1okrx-M2YnD17S2WEeEHJfZC1gj9XcI8g579j1VFpW1jde5o0D1bLnGi96ziFZ_fjDo8ZTYdPyRuOciiRPxsk8yEFNfHVZh1UZnY8M-rSGuGJnzZbLHalWLDkgfYje5YxQ5dKppZck4_zySO6pGStVtk8F3vqfqcwUNgrfFSocJqa46HGWxv41-eg',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAUSQluDYM-BKw3UvvxRKI8cVSfOkmgixDYdbBYROsZ4us697t8wWHVKpNfyVspqS0nk0QW14BZOXbPzkbCE1okrx-M2YnD17S2WEeEHJfZC1gj9XcI8g579j1VFpW1jde5o0D1bLnGi96ziFZ_fjDo8ZTYdPyRuOciiRPxsk8yEFNfHVZh1UZnY8M-rSGuGJnzZbLHalWLDkgfYje5YxQ5dKppZck4_zySO6pGStVtk8F3vqfqcwUNgrfFSocJqa46HGWxv41-eg',
     },
     {
       id: 2,
       title: 'Grant Application Workshop',
       description: 'Learn how to write a winning grant proposal.',
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuDZyPNTy41WN6OiRNvX_FudunaYl3bB_AT974HXteYa9PCuA9QjioHCfhqsWUAfOjoYbtNml3D4v6HqjBHjcCjFzsJB_56OhOjpjsrj6KE2zciBav7O-qw5vrkZsGpy88N2jNQYxeHYAmtrCGyYpokf3xjB-q9EnobQ2XAlNBNjNKKGBSlrCy0VYeg0y7hTcwm-SULDckELaTGEYIULAH3wkRjSMBFc_IPnMMMgIhvbTVnBSx1RVgeJYbddAOLkT91CRj3osyXjFg',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDZyPNTy41WN6OiRNvX_FudunaYl3bB_AT974HXteYa9PCuA9QjioHCfhqsWUAfOjoYbtNml3D4v6HqjBHjcCjFzsJB_56OhOjpjsrj6KE2zciBav7O-qw5vrkZsGpy88N2jNQYxeHYAmtrCGyYpokf3xjB-q9EnobQ2XAlNBNjNKKGBSlrCy0VYeg0y7hTcwm-SULDckELaTGEYIULAH3wkRjSMBFc_IPnMMMgIhvbTVnBSx1RVgeJYbddAOLkT91CRj3osyXjFg',
     },
     {
       id: 3,
       title: 'Startup Funding Pitch',
       description: 'Pitch your startup idea to top investors.',
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuD7QNR0-gRKdVysapRKCkUhRHEwrrGy1eoz-rONHkvp2Ju2E-BpJw7HF0szP8JoVyW8_1H8H9-5O4E2v5C9ZxKFGRazI67edgTzwRdhSHkHTc8OSTcNdcd1MltVJVAIsyt07oOs6rVj6X-Lvfay04RQu-VpGM8MDB-1KzSGlNPPYVghzhBXiP2lJYIVVmP1cneNTPRNZrvUl667sYrkbTM1DaqvY1JT1RwXxGecuoQvw3qr1PBs4UdrjMNpSZ-O4FZSckiuID6ECA',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD7QNR0-gRKdVysapRKCkUhRHEwrrGy1eoz-rONHkvp2Ju2E-BpJw7HF0szP8JoVyW8_1H8H9-5O4E2v5C9ZxKFGRazI67edgTzwRdhSHkHTc8OSTcNdcd1MltVJVAIsyt07oOs6rVj6X-Lvfay04RQu-VpGM8MDB-1KzSGlNPPYVghzhBXiP2lJYIVVmP1cneNTPRNZrvUl667sYrkbTM1DaqvY1JT1RwXxGecuoQvw3qr1PBs4UdrjMNpSZ-O4FZSckiuID6ECA',
     },
   ];
 
@@ -35,147 +30,102 @@ export default function Home() {
     {
       id: 1,
       title: 'AI-Powered Grant Finder',
-      description:
-        'Find grants tailored to your project with our intelligent search. We analyze your profile and project details to match you with the most relevant funding sources.',
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuB5Omdu5dKm1E2PFYA0r6_EAVPm1lXiOcf8OW3qtziDaod1PG3dormX1XDaBAu5no1OAx-a9jMcH6A6etlttN9aBS1PDa2pvYayWaScR2VXal64_iKpdVKV4vzhuUsMTs9HApAMLm-kgDpxQagPr_hwD0JhIHiuZoQnGPsxNJzxCL8pypvCGSPBH-WkKX7jFmgfCAxDYgkvhNhgQemvTgwwCH687zKDyzBU0qm6MynNqP9VDnxBWqv8lIHjxmiI6rtigZ2k50ODfA',
+      description: 'Find grants tailored to your project with our intelligent search. We analyze your profile and project details to match you with the most relevant funding sources.',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB5Omdu5dKm1E2PFYA0r6_EAVPm1lXiOcf8OW3qtziDaod1PG3dormX1XDaBAu5no1OAx-a9jMcH6A6etlttN9aBS1PDa2pvYayWaScR2VXal64_iKpdVKV4vzhuUsMTs9HApAMLm-kgDpxQagPr_hwD0JhIHiuZoQnGPsxNJzxCL8pypvCGSPBH-WkKX7jFmgfCAxDYgkvhNhgQemvTgwwCH687zKDyzBU0qm6MynNqP9VDnxBWqv8lIHjxmiI6rtigZ2k50ODfA',
     },
     {
       id: 2,
       title: 'Hackathon Matchmaker',
-      description:
-        'Discover hackathons that align with your skills, interests, and availability. Never miss an opportunity to innovate and connect with fellow developers.',
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuArtUsrhlr-NnpT4vBLcdbRJ8lur3vbbL_GTuIoV0Fnsa5l3ZC3d4w6YbG9hCznYrsWO8VYnnrJ-jriBt0UUyYFGrqqRaMJsEeCGUmslsWwDTAN1qYzyZ13MGg3u4mP4323iEyfPzhKdxc_M4kriEoFBUblpv2gBv9ri7VKR6H6jrobJA6viF0x665uM_jmK4oZhaHkQ-j-8RsomblfQSIbzoPBwa6p5906y1mw2MLt8-YLYNFMhMyemIWZAo140tsUi1m2YJXDdA',
+      description: 'Discover hackathons that align with your skills, interests, and availability. Never miss an opportunity to innovate and connect with fellow developers.',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuArtUsrhlr-NnpT4vBLcdbRJ8lur3vbbL_GTuIoV0Fnsa5l3ZC3d4w6YbG9hCznYrsWO8VYnnrJ-jriBt0UUyYFGrqqRaMJsEeCGUmslsWwDTAN1qYzyZ13MGg3u4mP4323iEyfPzhKdxc_M4kriEoFBUblpv2gBv9ri7VKR6H6jrobJA6viF0x665uM_jmK4oZhaHkQ-j-8RsomblfQSIbzoPBwa6p5906y1mw2MLt8-YLYNFMhMyemIWZAo140tsUi1m2YJXDdA',
     },
     {
       id: 3,
       title: 'Startup Funding Navigator',
-      description:
-        'Navigate the complex funding landscape with personalized recommendations. From pre-seed to Series A, we guide you to the right investors.',
-      image:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuAajkbGU8vpWVO3GzrQ3SR34qiJD3bb4BvlubcKmgtjZUWBpEZCrj65AtevYEOTn1DPsOQ8S1AUMfwNY_6avNxtWaNN6m5T0ZK9NmSNPX37zCWIyHc4geMRlrZwjFJeErkuKTCzyayP5Z5aU14ApryZFHo7ycDCmy2ZEB4TlfXvnuZMzVk9lU3ApQ5rv60HtLRdyfV_gJeD-HP60g4nUgda5UH8MryzZEbKTZMyqDqXLBbI7kI3yXaXbSKoMR867M0JYIcgfZOZXg',
+      description: 'Navigate the complex funding landscape with personalized recommendations. From pre-seed to Series A, we guide you to the right investors.',
+      image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAajkbGU8vpWVO3GzrQ3SR34qiJD3bb4BvlubcKmgtjZUWBpEZCrj65AtevYEOTn1DPsOQ8S1AUMfwNY_6avNxtWaNN6m5T0ZK9NmSNPX37zCWIyHc4geMRlrZwjFJeErkuKTCzyayP5Z5aU14ApryZFHo7ycDCmy2ZEB4TlfXvnuZMzVk9lU3ApQ5rv60HtLRdyfV_gJeD-HP60g4nUgda5UH8MryzZEbKTZMyqDqXLBbI7kI3yXaXbSKoMR867M0JYIcgfZOZXg',
     },
   ];
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div className="flex min-h-screen w-full flex-col overflow-x-hidden">
       <Header />
-      <Box component="main" sx={{ flex: 1, px: { xs: 2, sm: 3, lg: 5 }, py: 4 }}>
-        <Container maxWidth="lg">
-          <Box sx={{ mb: 4 }}>
-            <Typography variant="h4" component="h2" sx={{ fontWeight: 700, mb: 1 }}>
-              Your Personalized Opportunity Feed
-            </Typography>
-            <Typography variant="body1" sx={{ color: 'text.secondary', maxWidth: '600px' }}>
-              AI-curated opportunities in hackathons, grants, and startup funding, just for you.
-            </Typography>
-          </Box>
+      <main className="flex-1 px-4 sm:px-6 lg:px-10 py-8">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2 text-gray-900 dark:text-white">Your Personalized Opportunity Feed</h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl">AI-curated opportunities in hackathons, grants, and startup funding, just for you.</p>
+          </div>
 
-          <Box sx={{ mb: 5, display: { xs: 'block', sm: 'none' } }}>
-            <TextField
-              fullWidth
-              placeholder="Search for opportunities"
-              size="small"
-              InputProps={{ startAdornment: <SearchIcon sx={{ mr: 1, color: 'text.secondary' }} /> }}
-            />
-          </Box>
+          <div className="mb-10 sm:hidden">
+            <label className="relative">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+                <svg className="h-5 w-5 text-gray-400 dark:text-gray-500" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z" />
+                </svg>
+              </div>
+              <input className="h-12 w-full rounded-lg border-0 bg-gray-100 dark:bg-gray-800 pl-12 pr-4 text-base placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Search for opportunities" />
+            </label>
+          </div>
 
-          <Box sx={{ mb: 6 }}>
-            <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
-              Trending Opportunities
-            </Typography>
-            <Box sx={{ display: 'flex', gap: 3, overflowX: 'auto', pb: 2 }}>
-              {trendingOpportunities.map((opp) => (
-                <Box key={opp.id} sx={{ flex: '0 0 280px' }}>
-                  <Box
-                    sx={{
-                      width: '100%',
-                      aspectRatio: '16 / 9',
-                      backgroundImage: `url("${opp.image}")`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      borderRadius: 2,
-                      mb: 1,
-                    }}
-                  />
-                  <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 0.5 }}>
-                    {opp.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    {opp.description}
-                  </Typography>
-                </Box>
-              ))}
-            </Box>
-          </Box>
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Trending Opportunities</h3>
+            <div className="relative">
+              <div className="flex overflow-x-auto pb-4 -mx-4 px-4 gap-6 snap-x snap-mandatory">
+                {trendingOpportunities.map((opp) => (
+                  <div key={opp.id} className="flex flex-col gap-3 rounded-lg min-w-[280px] snap-start">
+                    <div
+                      className="w-full aspect-video bg-cover bg-center rounded-lg"
+                      style={{ backgroundImage: `url("${opp.image}")` }}
+                    />
+                    <div>
+                      <h4 className="font-bold text-lg text-gray-900 dark:text-white">{opp.title}</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{opp.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
-          <Box sx={{ mb: 6 }}>
-            <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
-              Quick Navigation
-            </Typography>
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-              <Button
-                component={Link}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Quick Navigation</h3>
+            <div className="flex flex-wrap gap-4">
+              <Link
                 href="/opportunities"
-                variant="outlined"
-                sx={{ flex: { xs: 1, sm: 'initial' } }}
+                className="flex-grow sm:flex-grow-0 flex items-center justify-center rounded-lg h-12 px-6 bg-gray-100 dark:bg-gray-800 text-sm font-bold text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               >
                 Browse All Opportunities
-              </Button>
-              <Button
-                component={Link}
+              </Link>
+              <Link
                 href="/categories"
-                variant="outlined"
-                sx={{ flex: { xs: 1, sm: 'initial' } }}
+                className="flex-grow sm:flex-grow-0 flex items-center justify-center rounded-lg h-12 px-6 bg-gray-100 dark:bg-gray-800 text-sm font-bold text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               >
                 Explore Categories
-              </Button>
-            </Stack>
-          </Box>
+              </Link>
+            </div>
+          </div>
 
-          <Box>
-            <Typography variant="h5" sx={{ fontWeight: 700, mb: 3 }}>
-              AI-Curated For You
-            </Typography>
-            <Stack spacing={3}>
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">AI-Curated For You</h3>
+            <div className="space-y-6">
               {curatedOpportunities.map((opp) => (
-                <Paper
-                  key={opp.id}
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: { xs: 'column', md: 'row' },
-                    alignItems: { xs: 'center', md: 'flex-start' },
-                    gap: 3,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      width: { xs: '100%', md: '33%' },
-                      aspectRatio: { xs: '16 / 9', md: '1' },
-                      backgroundImage: `url("${opp.image}")`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      borderRadius: 2,
-                      flexShrink: 0,
-                    }}
+                <div key={opp.id} className="flex flex-col md:flex-row items-center gap-6 p-4 rounded-lg bg-gray-100 dark:bg-gray-800">
+                  <div
+                    className="w-full md:w-1/3 aspect-video md:aspect-square bg-cover bg-center rounded-lg flex-shrink-0"
+                    style={{ backgroundImage: `url("${opp.image}")` }}
                   />
-                  <Box sx={{ flex: 1 }}>
-                    <Typography variant="h6" sx={{ fontWeight: 700, mb: 0.5 }}>
-                      {opp.title}
-                    </Typography>
-                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                      {opp.description}
-                    </Typography>
-                  </Box>
-                </Paper>
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white leading-tight mb-1">{opp.title}</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">{opp.description}</p>
+                  </div>
+                </div>
               ))}
-            </Stack>
-          </Box>
-        </Container>
-      </Box>
+            </div>
+          </div>
+        </div>
+      </main>
       <Footer />
-    </Box>
+    </div>
   );
 }
