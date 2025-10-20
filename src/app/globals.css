@@ -1,35 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --primary: #1193d4;
-  --background-light: #f6f7f8;
-  --background-dark: #101c22;
-  --surface-light: #ffffff;
-  --surface-dark: #1a2830;
-  --muted-light: #6b7280;
-  --muted-dark: #9ca3af;
-  --contrast-light: #111827;
-  --contrast-dark: #ffffff;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@layer base {
-  html {
-    @apply scroll-smooth;
-  }
-
-  body {
-    @apply antialiased;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
-@layer utilities {
-  .group:hover .group-hover\:block {
-    @apply block;
-  }
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  .group:hover .group-hover\:flex {
-    @apply flex;
-  }
+#__next {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
