@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, Divider, Link as MuiLink, Stack, Typography, useTheme } from '@mui/material';
+import { Box, Container, Link as MuiLink, Typography, useTheme } from '@mui/material';
 
 export default function Footer() {
   const theme = useTheme();

@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation';
 import {
   Box,
   Container,
-  Grid,
+  GridLegacy as Grid,
   Paper,
   Stack,
   Select,
@@ -14,18 +14,15 @@ import {
   Typography,
   Pagination,
   PaginationItem,
-  Checkbox,
   FormControl,
   InputLabel,
 } from '@mui/material';
-import { useState as ReactUseState } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ViewListIcon from '@mui/icons-material/ViewComfy';
-import ViewAgendaIcon from '@mui/icons-material/GridView';
-import ArrowBackIcon from '@mui/icons-material/NavigateBefore';
-import ArrowForwardIcon from '@mui/icons-material/NavigateNext';
+import ViewComfyIcon from '@mui/icons-material/ViewComfy';
+import GridViewIcon from '@mui/icons-material/GridView';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 interface Opportunity {
   id: number;
@@ -38,13 +35,13 @@ interface Opportunity {
 export default function CategoryDetailPage() {
   const params = useParams();
   const category = (params.category as string)?.replace(/-/g, ' ').toUpperCase() || 'HACKATHONS';
-  const [viewMode, setViewMode] = ReactUseState<'list' | 'grid'>('list');
-  const [selectedCategory, setSelectedCategory] = ReactUseState('All Categories');
-  const [selectedLocation, setSelectedLocation] = ReactUseState('Worldwide');
-  const [selectedFocus, setSelectedFocus] = ReactUseState('Any');
-  const [selectedPrize, setSelectedPrize] = ReactUseState('Any Amount');
-  const [selectedEligibility, setSelectedEligibility] = ReactUseState('Everyone');
-  const [selectedDeadline, setSelectedDeadline] = ReactUseState('Anytime');
+  const [viewMode, setViewMode] = useState<'list' | 'grid'>('list');
+  const [selectedCategory, setSelectedCategory] = useState('All Categories');
+  const [selectedLocation, setSelectedLocation] = useState('Worldwide');
+  const [selectedFocus, setSelectedFocus] = useState('Any');
+  const [selectedPrize, setSelectedPrize] = useState('Any Amount');
+  const [selectedEligibility, setSelectedEligibility] = useState('Everyone');
+  const [selectedDeadline, setSelectedDeadline] = useState('Anytime');
 
   const opportunities: Opportunity[] = [
     {
@@ -207,22 +204,22 @@ export default function CategoryDetailPage() {
                   </Stack>
 
                   <Box sx={{ display: 'flex', gap: 1, border: 1, borderColor: 'divider', borderRadius: 1, p: 0.5 }}>
-                    <Button
-                      onClick={() => setViewMode('list')}
-                      variant={viewMode === 'list' ? 'contained' : 'text'}
-                      size="small"
-                      startIcon={<ViewListIcon />}
-                    >
-                      List
-                    </Button>
-                    <Button
-                      onClick={() => setViewMode('grid')}
-                      variant={viewMode === 'grid' ? 'contained' : 'text'}
-                      size="small"
-                      startIcon={<ViewAgendaIcon />}
-                    >
-                      Grid
-                    </Button>
+                     <Button
+                       onClick={() => setViewMode('list')}
+                       variant={viewMode === 'list' ? 'contained' : 'text'}
+                       size="small"
+                       startIcon={<ViewComfyIcon />}
+                     >
+                       List
+                     </Button>
+                     <Button
+                       onClick={() => setViewMode('grid')}
+                       variant={viewMode === 'grid' ? 'contained' : 'text'}
+                       size="small"
+                       startIcon={<GridViewIcon />}
+                     >
+                       Grid
+                     </Button>
                   </Box>
                 </Box>
 
@@ -275,14 +272,14 @@ export default function CategoryDetailPage() {
                           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                             {opp.description}
                           </Typography>
-                          <Button
-                            variant="outlined"
-                            size="small"
-                            endIcon={<ArrowForwardIcon />}
-                            sx={{ textTransform: 'none', mt: 1 }}
-                          >
-                            View Details
-                          </Button>
+                           <Button
+                             variant="outlined"
+                             size="small"
+                             endIcon={<NavigateNextIcon />}
+                             sx={{ textTransform: 'none', mt: 1 }}
+                           >
+                             View Details
+                           </Button>
                         </Stack>
                       </Paper>
                     </Link>

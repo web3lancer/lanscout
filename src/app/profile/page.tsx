@@ -4,7 +4,7 @@ import {
   Box,
   Button,
   Container,
-  Grid,
+  GridLegacy as Grid,
   Stack,
   TextField,
   Typography,
@@ -83,7 +83,7 @@ export default function ProfilePage() {
               <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 3, pb: 2, borderBottom: 1, borderColor: 'divider' }}>
                 My Interests & Skills
               </Typography>
-              <Grid container spacing={3} sx={{ mb: 3 }}>
+               <Grid container spacing={3} sx={{ mb: 3 }}>
                 <Grid item xs={12} sm={6}>
                   <Stack spacing={1}>
                     <Typography variant="subtitle2" sx={{ fontWeight: 500 }}>

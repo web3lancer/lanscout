@@ -6,7 +6,7 @@ import {
   Button,
   Container,
   Divider,
-  Grid,
+  GridLegacy as Grid,
   Paper,
   Stack,
   Tab,
@@ -16,8 +16,6 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText,
-  useTheme,
 } from '@mui/material';
 import { useState } from 'react';
 import Link from 'next/link';
@@ -81,7 +79,6 @@ export default function OpportunityDetailPage() {
   const id = params.id as string;
   const opportunity = opportunitiesData[id] || opportunitiesData['1'];
   const [tabValue, setTabValue] = useState(0);
-  const theme = useTheme();
 
   const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
@@ -94,13 +91,13 @@ export default function OpportunityDetailPage() {
         <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
           <Stack spacing={6}>
             <Stack spacing={3}>
-              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                <Link href="/opportunities" style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <span style={{ cursor: 'pointer' }}>Opportunities</span>
-                </Link>
-                <span sx={{ mx: 1 }}> / </span>
-                <span>{opportunity.title}</span>
-              </Typography>
+               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                 <Link href="/opportunities" style={{ textDecoration: 'none', color: 'inherit' }}>
+                   <span style={{ cursor: 'pointer' }}>Opportunities</span>
+                 </Link>
+                 <Box component="span" sx={{ mx: 1 }}> / </Box>
+                 <span>{opportunity.title}</span>
+               </Typography>
 
               <Box
                 sx={{

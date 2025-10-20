@@ -6,7 +6,7 @@ import {
   Box,
   Container,
   FormControl,
-  Grid,
+  GridLegacy as Grid,
   InputLabel,
   MenuItem,
   Paper,
@@ -152,19 +152,22 @@ export default function Category() {
                       Explore {category.toLowerCase()} that match your interests and skills.
                     </Typography>
                   </Box>
-                  <ToggleButtonGroup
-                    value={viewMode}
-                    exclusive
-                    onChange={(_, newView) => newView && setViewMode(newView)}
-                    sx={{ mt: { xs: 2, sm: 0 } }}
-                  >
+                   <ToggleButtonGroup
+                     value={viewMode}
+                     exclusive
+                     onChange={(_, newView) => newView && setViewMode(newView)}
+                     sx={{ mt: { xs: 2, sm: 0 } }}
+                   >
                     <ToggleButton value="list">
                       <ListIcon />
                     </ToggleButton>
                     <ToggleButton value="grid">
                       <GridViewIcon />
                     </ToggleButton>
-                  </ToggleButtonGroup>
+                     <ToggleButton value="grid">
+                       <GridViewIcon />
+                     </ToggleButton>
+                   </ToggleButtonGroup>
                 </Box>
 
                 <Stack spacing={2}>
